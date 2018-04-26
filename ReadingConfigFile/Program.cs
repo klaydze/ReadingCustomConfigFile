@@ -13,9 +13,16 @@ namespace ReadingConfigFile
         {
             ToolsSettingsSection toolsSection = (ToolsSettingsSection)ConfigurationManager.GetSection("myToolsSettingSection");
 
-            var xmlFormats = toolsSection.XmlFormats.FirstOrDefault(y => y.Value == "advance");
+            // get settings
             var sett = toolsSection.Settings.FirstOrDefault(x => x.Name == "appVersion");
+
+            // get xml formats
+            var xmlFormats = toolsSection.XmlFormats.FirstOrDefault(y => y.Value == "advance");
+            
+            // get countries
             var countries = toolsSection.Countries;
+
+            // get database objects
             var dbobj = toolsSection.DatabaseObjects.FirstOrDefault(x => x.Name == "userTable1");
         }
     }
